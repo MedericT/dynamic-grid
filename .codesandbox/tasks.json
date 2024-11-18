@@ -19,17 +19,19 @@
     },
     "build": {
       "name": "build",
-      "command": "pnpm build",
-      "runAtStart": false
+      "command": "pnpm build"
     },
     "preview": {
       "name": "preview",
-      "command": "pnpm preview",
-      "runAtStart": false
+      "command": "pnpm preview"
     },
     "install": {
       "name": "install dependencies",
       "command": "pnpm install"
+    },
+    "test": {
+      "name": "test",
+      "command": "pnpm test"
     }
   }
 }
