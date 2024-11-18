@@ -1,25 +1,28 @@
 import styled from "styled-components";
-import Row from "./Row";
 
 interface GridProps {
-  rows: number;
-  cells: number;
+  lines: number;
+  columns: number;
 }
 
-export default function Grid({ rows, cells }: GridProps) {
+export default function Grid({ lines, columns }: GridProps) {
   return (
-    <Container>
-      <div>
-        {Array.from(Array(rows), (_, i) => {
-          return <Row key={i} rows={rows} cells={cells} />;
+    <SGrid columns={columns}>
+        {Array.from(Array(lines * columns), (_, i) => {
+          return <div key={i} role="cell"></div>;
         })}
-      </div>
-    </Container>
+    </SGrid>
   );
 }
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 30px;
+const SGrid = styled.div<{columns: number}>`
+  min-block-size: 50vmin;
+  inline-size: 50vmin;
+  margin: auto;
+  background-color: #6c9ce4;
+  display: grid;
+  grid-template-columns: repeat(${props => props.columns}, 1fr);
+  & > * {
+    border: solid 2px white;
+  }
 `;

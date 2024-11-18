@@ -20,13 +20,14 @@ export default function App() {
 
   return (
     <Container>
-      <Grid rows={grid.lines} cells={grid.columns} />
+      <Grid lines={grid.lines} columns={grid.columns} />
       <Form onSubmit={handleChange} />
     </Container>
   );
 }
 
 const Container = styled.div`
+  min-block-size: 100svh;
+  padding-block: 2em;
   background: #cacaca;
-  min-height: 100vh;
 `;
